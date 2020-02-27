@@ -1,0 +1,68 @@
+16:54:28.90 >>> Call to binary_search in File "binary_search.py", line 8
+16:54:28.90 ...... sequence = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61]
+16:54:28.90 ...... len(sequence) = 18
+16:54:28.90 ...... target = 2
+16:54:28.90    8 | def binary_search(sequence, target):
+16:54:28.90    9 |     num_of_elements = len(sequence)
+16:54:28.90 .......... num_of_elements = 18
+16:54:28.90   10 |     pick = num_of_elements // 2
+16:54:28.90 .......... pick = 9
+16:54:28.90   11 |     if sequence[pick] == target:
+16:54:28.90   13 |     elif sequence[pick] > target:
+16:54:28.90   14 |         return pick + binary_search(sequence[:pick], target)
+    16:54:28.90 >>> Call to binary_search in File "binary_search.py", line 8
+    16:54:28.90 ...... sequence = [2, 3, 5, 7, 11, 13, 17, 19, 23]
+    16:54:28.90 ...... len(sequence) = 9
+    16:54:28.90 ...... target = 2
+    16:54:28.90    8 | def binary_search(sequence, target):
+    16:54:28.90    9 |     num_of_elements = len(sequence)
+    16:54:28.90 .......... num_of_elements = 9
+    16:54:28.90   10 |     pick = num_of_elements // 2
+    16:54:28.90 .......... pick = 4
+    16:54:28.90   11 |     if sequence[pick] == target:
+    16:54:28.90   13 |     elif sequence[pick] > target:
+    16:54:28.90   14 |         return pick + binary_search(sequence[:pick], target)
+        16:54:28.90 >>> Call to binary_search in File "binary_search.py", line 8
+        16:54:28.90 ...... sequence = [2, 3, 5, 7]
+        16:54:28.90 ...... len(sequence) = 4
+        16:54:28.90 ...... target = 2
+        16:54:28.90    8 | def binary_search(sequence, target):
+        16:54:28.90    9 |     num_of_elements = len(sequence)
+        16:54:28.90 .......... num_of_elements = 4
+        16:54:28.90   10 |     pick = num_of_elements // 2
+        16:54:28.90 .......... pick = 2
+        16:54:28.90   11 |     if sequence[pick] == target:
+        16:54:28.90   13 |     elif sequence[pick] > target:
+        16:54:28.90   14 |         return pick + binary_search(sequence[:pick], target)
+            16:54:28.90 >>> Call to binary_search in File "binary_search.py", line 8
+            16:54:28.90 ...... sequence = [2, 3]
+            16:54:28.90 ...... len(sequence) = 2
+            16:54:28.90 ...... target = 2
+            16:54:28.90    8 | def binary_search(sequence, target):
+            16:54:28.90    9 |     num_of_elements = len(sequence)
+            16:54:28.90 .......... num_of_elements = 2
+            16:54:28.90   10 |     pick = num_of_elements // 2
+            16:54:28.90 .......... pick = 1
+            16:54:28.90   11 |     if sequence[pick] == target:
+            16:54:28.90   13 |     elif sequence[pick] > target:
+            16:54:28.90   14 |         return pick + binary_search(sequence[:pick], target)
+                16:54:28.90 >>> Call to binary_search in File "binary_search.py", line 8
+                16:54:28.90 ...... sequence = [2]
+                16:54:28.90 ...... len(sequence) = 1
+                16:54:28.90 ...... target = 2
+                16:54:28.90    8 | def binary_search(sequence, target):
+                16:54:28.90    9 |     num_of_elements = len(sequence)
+                16:54:28.90 .......... num_of_elements = 1
+                16:54:28.90   10 |     pick = num_of_elements // 2
+                16:54:28.90 .......... pick = 0
+                16:54:28.90   11 |     if sequence[pick] == target:
+                16:54:28.90   12 |         return pick
+                16:54:28.90 <<< Return value from binary_search: 0
+            16:54:28.90   14 |         return pick + binary_search(sequence[:pick], target)
+            16:54:28.90 <<< Return value from binary_search: 1
+        16:54:28.90   14 |         return pick + binary_search(sequence[:pick], target)
+        16:54:28.90 <<< Return value from binary_search: 3
+    16:54:28.90   14 |         return pick + binary_search(sequence[:pick], target)
+    16:54:28.90 <<< Return value from binary_search: 7
+16:54:28.90   14 |         return pick + binary_search(sequence[:pick], target)
+16:54:28.90 <<< Return value from binary_search: 16

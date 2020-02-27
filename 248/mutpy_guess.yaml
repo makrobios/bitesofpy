@@ -1,0 +1,843 @@
+coverage:
+  all_nodes: 0
+  covered_nodes: 0
+mutation_score: 81.3953488372093
+mutations:
+- exception_traceback: null
+  killer: null
+  module: &id001 !!python/module:guess ''
+  mutations:
+  - lineno: 35
+    operator: ASR
+  number: 1
+  status: survived
+  tests_run: 4
+  time: 0.19503545761108398
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916105039120'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1b933d0>, game = <guess.GuessGame\
+    \ object at 0x7f40c1b93d10>\n\n    @patch(target=\"guess.input\", side_effect=[\"\
+    spam\", 10])\n    def test_GuessGame_call_wrong_input(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out\n>       assert captured\
+    \ == (\"Guess a number: \\n\"\n                            \"Enter a number, try\
+    \ again\\n\"\n                            \"Guess a number: \\n\"\n          \
+    \                  \"You guessed it!\\n\")\nE       AssertionError\n\ntest_guess.py:66:\
+    \ AssertionError"
+  killer: test_guess.py::test_GuessGame_call_wrong_input
+  module: *id001
+  mutations:
+  - lineno: 33
+    operator: BCR
+  number: 2
+  status: killed
+  tests_run: 4
+  time: 0.1984560489654541
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916106409872'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1bdb110>, game = <guess.GuessGame\
+    \ object at 0x7f40c1bdbe50>\n\n    @patch(target=\"guess.input\", side_effect=[1,15,\
+    \ 10])\n    def test_GuessGame_call_number_range(mock_input, capsys, game):\n\
+    >       game()\n\ntest_guess.py:50: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\
+    guess:30: in __call__\n    ???\n../../anaconda3/lib/python3.7/unittest/mock.py:1011:\
+    \ in __call__\n    return _mock_self._mock_call(*args, **kwargs)\n_ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n_mock_self = <MagicMock name='input' id='139916106409872'>,\
+    \ args = (), kwargs = {}, self = <MagicMock name='input' id='139916106409872'>,\
+    \ _call = call(), seen = set()\ndo_method_calls = False, method_call_name = 'input',\
+    \ mock_call_name = '', is_a_call = False, _new_parent = None\n\n    def _mock_call(_mock_self,\
+    \ *args, **kwargs):\n        self = _mock_self\n        self.called = True\n \
+    \       self.call_count += 1\n    \n        # handle call_args\n        _call\
+    \ = _Call((args, kwargs), two=True)\n        self.call_args = _call\n        self.call_args_list.append(_call)\n\
+    \    \n        seen = set()\n    \n        # initial stuff for method_calls:\n\
+    \        do_method_calls = self._mock_parent is not None\n        method_call_name\
+    \ = self._mock_name\n    \n        # initial stuff for mock_calls:\n        mock_call_name\
+    \ = self._mock_new_name\n        is_a_call = mock_call_name == '()'\n        self.mock_calls.append(_Call(('',\
+    \ args, kwargs)))\n    \n        # follow up the chain of mocks:\n        _new_parent\
+    \ = self._mock_new_parent\n        while _new_parent is not None:\n    \n    \
+    \        # handle method_calls:\n            if do_method_calls:\n           \
+    \     _new_parent.method_calls.append(_Call((method_call_name, args, kwargs)))\n\
+    \                do_method_calls = _new_parent._mock_parent is not None\n    \
+    \            if do_method_calls:\n                    method_call_name = _new_parent._mock_name\
+    \ + '.' + method_call_name\n    \n            # handle mock_calls:\n         \
+    \   this_mock_call = _Call((mock_call_name, args, kwargs))\n            _new_parent.mock_calls.append(this_mock_call)\n\
+    \    \n            if _new_parent._mock_new_name:\n                if is_a_call:\n\
+    \                    dot = ''\n                else:\n                    dot\
+    \ = '.'\n                is_a_call = _new_parent._mock_new_name == '()'\n    \
+    \            mock_call_name = _new_parent._mock_new_name + dot + mock_call_name\n\
+    \    \n            # follow the parental chain:\n            _new_parent = _new_parent._mock_new_parent\n\
+    \    \n            # check we're not in an infinite loop:\n            # ( use\
+    \ ids here so as not to call __hash__ on the mocks)\n            _new_parent_id\
+    \ = id(_new_parent)\n            if _new_parent_id in seen:\n                break\n\
+    \            seen.add(_new_parent_id)\n    \n        effect = self.side_effect\n\
+    \        if effect is not None:\n            if _is_exception(effect):\n     \
+    \           raise effect\n            elif not _callable(effect):\n>         \
+    \      result = next(effect)\nE               StopIteration\n\n../../anaconda3/lib/python3.7/unittest/mock.py:1073:\
+    \ StopIteration"
+  killer: test_guess.py::test_GuessGame_call_number_range
+  module: *id001
+  mutations:
+  - lineno: 43
+    operator: BCR
+  number: 3
+  status: killed
+  tests_run: 2
+  time: 0.26692867279052734
+- exception_traceback: "@pytest.fixture()\n    def game():\n>       game = GuessGame(10,\
+    \ max_guesses=5)\n\ntest_guess.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ \nguess:11: in __init__\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n\
+    self = <guess.GuessGame object at 0x7f40c1c38b10>, number = 10\n\n>   ???\nE \
+    \  guess.InvalidNumber: Negative number\n\nguess:21: InvalidNumber"
+  killer: test_guess.py::test_GuessGame_validate
+  module: *id001
+  mutations:
+  - lineno: 20
+    operator: COI
+  number: 4
+  status: killed
+  tests_run: 1
+  time: 0.20770502090454102
+- exception_traceback: "@pytest.fixture()\n    def game():\n>       game = GuessGame(10,\
+    \ max_guesses=5)\n\ntest_guess.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ \nguess:11: in __init__\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n\
+    self = <guess.GuessGame object at 0x7f40c1c38a90>, number = 10\n\n>   ???\nE \
+    \  guess.InvalidNumber: Number too high\n\nguess:23: InvalidNumber"
+  killer: test_guess.py::test_GuessGame_validate
+  module: *id001
+  mutations:
+  - lineno: 22
+    operator: COI
+  number: 5
+  status: killed
+  tests_run: 1
+  time: 0.2122035026550293
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916106409872'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1c716d0>, game = <guess.GuessGame\
+    \ object at 0x7f40c1c710d0>\n\n    @patch(target=\"guess.input\", side_effect=[1,15,\
+    \ 10])\n    def test_GuessGame_call_number_range(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out.split(\"\\n\")\n>\
+    \       assert captured[1] == \"Too low\"\nE       AssertionError\n\ntest_guess.py:52:\
+    \ AssertionError"
+  killer: test_guess.py::test_GuessGame_call_number_range
+  module: *id001
+  mutations:
+  - lineno: 27
+    operator: COI
+  number: 6
+  status: killed
+  tests_run: 2
+  time: 0.1950833797454834
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916106409872'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1d4d5d0>, game = <guess.GuessGame\
+    \ object at 0x7f40c1b8f910>\n\n    @patch(target=\"guess.input\", side_effect=[1,15,\
+    \ 10])\n    def test_GuessGame_call_number_range(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out.split(\"\\n\")\n>\
+    \       assert captured[1] == \"Too low\"\nE       AssertionError\n\ntest_guess.py:52:\
+    \ AssertionError"
+  killer: test_guess.py::test_GuessGame_call_number_range
+  module: *id001
+  mutations:
+  - lineno: 37
+    operator: COI
+  number: 7
+  status: killed
+  tests_run: 2
+  time: 0.19707512855529785
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916106409872'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1b39910>, game = <guess.GuessGame\
+    \ object at 0x7f40c1b39590>\n\n    @patch(target=\"guess.input\", side_effect=[1,15,\
+    \ 10])\n    def test_GuessGame_call_number_range(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out.split(\"\\n\")\n \
+    \       assert captured[1] == \"Too low\"\n>       assert captured[3] == \"Too\
+    \ high\"\nE       AssertionError\n\ntest_guess.py:53: AssertionError"
+  killer: test_guess.py::test_GuessGame_call_number_range
+  module: *id001
+  mutations:
+  - lineno: 39
+    operator: COI
+  number: 8
+  status: killed
+  tests_run: 2
+  time: 0.20177960395812988
+- exception_traceback: "game = <guess.GuessGame object at 0x7f40c1c2ac50>\n\n    def\
+    \ test_GuessGame_validate(game):\n        with pytest.raises(InvalidNumber, match=\"\
+    Not a number\"):\n            game._validate(\"spam\")\n        with pytest.raises(InvalidNumber,\
+    \ match=\"Negative number\"):\n            game._validate(-16)\n        with pytest.raises(InvalidNumber,\
+    \ match=\"Number too high\"):\n>           game._validate(16)\nE           Failed:\
+    \ DID NOT RAISE <class 'guess.InvalidNumber'>\n\ntest_guess.py:21: Failed"
+  killer: test_guess.py::test_GuessGame_validate
+  module: *id001
+  mutations:
+  - lineno: 1
+    operator: CRP
+  number: 9
+  status: killed
+  tests_run: 1
+  time: 0.1970958709716797
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 10
+    operator: CRP
+  number: 10
+  status: survived
+  tests_run: 4
+  time: 0.19517731666564941
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 13
+    operator: CRP
+  number: 11
+  status: survived
+  tests_run: 4
+  time: 0.19373536109924316
+- exception_traceback: "self = <guess.GuessGame object at 0x7f40c1abb790>, number\
+    \ = 'spam'\n\n>   ???\nE   ValueError: invalid literal for int() with base 10:\
+    \ 'spam'\n\nguess:17: ValueError\n\nDuring handling of the above exception, another\
+    \ exception occurred:\n\ngame = <guess.GuessGame object at 0x7f40c1abb790>\n\n\
+    \    def test_GuessGame_validate(game):\n        with pytest.raises(InvalidNumber,\
+    \ match=\"Not a number\"):\n>           game._validate(\"spam\")\n\ntest_guess.py:17:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <guess.GuessGame object at\
+    \ 0x7f40c1abb790>, number = 'spam'\n\n>   ???\nE   guess.InvalidNumber: mutpy\n\
+    \nguess:19: InvalidNumber\n\nDuring handling of the above exception, another exception\
+    \ occurred:\n\ngame = <guess.GuessGame object at 0x7f40c1abb790>\n\n    def test_GuessGame_validate(game):\n\
+    \        with pytest.raises(InvalidNumber, match=\"Not a number\"):\n>       \
+    \    game._validate(\"spam\")\nE           AssertionError: Pattern 'Not a number'\
+    \ not found in 'mutpy'\n\ntest_guess.py:17: AssertionError"
+  killer: test_guess.py::test_GuessGame_validate
+  module: *id001
+  mutations:
+  - lineno: 19
+    operator: CRP
+  number: 12
+  status: killed
+  tests_run: 1
+  time: 0.21454596519470215
+- exception_traceback: "self = <guess.GuessGame object at 0x7f40c1caa150>, number\
+    \ = 'spam'\n\n>   ???\nE   ValueError: invalid literal for int() with base 10:\
+    \ 'spam'\n\nguess:17: ValueError\n\nDuring handling of the above exception, another\
+    \ exception occurred:\n\ngame = <guess.GuessGame object at 0x7f40c1caa150>\n\n\
+    \    def test_GuessGame_validate(game):\n        with pytest.raises(InvalidNumber,\
+    \ match=\"Not a number\"):\n>           game._validate(\"spam\")\n\ntest_guess.py:17:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <guess.GuessGame object at\
+    \ 0x7f40c1caa150>, number = 'spam'\n\n>   ???\nE   guess.InvalidNumber\n\nguess:19:\
+    \ InvalidNumber\n\nDuring handling of the above exception, another exception occurred:\n\
+    \ngame = <guess.GuessGame object at 0x7f40c1caa150>\n\n    def test_GuessGame_validate(game):\n\
+    \        with pytest.raises(InvalidNumber, match=\"Not a number\"):\n>       \
+    \    game._validate(\"spam\")\nE           AssertionError: Pattern 'Not a number'\
+    \ not found in ''\n\ntest_guess.py:17: AssertionError"
+  killer: test_guess.py::test_GuessGame_validate
+  module: *id001
+  mutations:
+  - lineno: 19
+    operator: CRP
+  number: 13
+  status: killed
+  tests_run: 1
+  time: 0.21385407447814941
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 20
+    operator: CRP
+  number: 14
+  status: survived
+  tests_run: 4
+  time: 0.19339847564697266
+- exception_traceback: "game = <guess.GuessGame object at 0x7f40c1bfb3d0>\n\n    def\
+    \ test_GuessGame_validate(game):\n        with pytest.raises(InvalidNumber, match=\"\
+    Not a number\"):\n            game._validate(\"spam\")\n        with pytest.raises(InvalidNumber,\
+    \ match=\"Negative number\"):\n>           game._validate(-16)\n\ntest_guess.py:19:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <guess.GuessGame object at\
+    \ 0x7f40c1bfb3d0>, number = -16\n\n>   ???\nE   guess.InvalidNumber: mutpy\n\n\
+    guess:21: InvalidNumber\n\nDuring handling of the above exception, another exception\
+    \ occurred:\n\ngame = <guess.GuessGame object at 0x7f40c1bfb3d0>\n\n    def test_GuessGame_validate(game):\n\
+    \        with pytest.raises(InvalidNumber, match=\"Not a number\"):\n        \
+    \    game._validate(\"spam\")\n        with pytest.raises(InvalidNumber, match=\"\
+    Negative number\"):\n>           game._validate(-16)\nE           AssertionError:\
+    \ Pattern 'Negative number' not found in 'mutpy'\n\ntest_guess.py:19: AssertionError"
+  killer: test_guess.py::test_GuessGame_validate
+  module: *id001
+  mutations:
+  - lineno: 21
+    operator: CRP
+  number: 15
+  status: killed
+  tests_run: 1
+  time: 0.2110433578491211
+- exception_traceback: "game = <guess.GuessGame object at 0x7f40c1cc1090>\n\n    def\
+    \ test_GuessGame_validate(game):\n        with pytest.raises(InvalidNumber, match=\"\
+    Not a number\"):\n            game._validate(\"spam\")\n        with pytest.raises(InvalidNumber,\
+    \ match=\"Negative number\"):\n>           game._validate(-16)\n\ntest_guess.py:19:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <guess.GuessGame object at\
+    \ 0x7f40c1cc1090>, number = -16\n\n>   ???\nE   guess.InvalidNumber\n\nguess:21:\
+    \ InvalidNumber\n\nDuring handling of the above exception, another exception occurred:\n\
+    \ngame = <guess.GuessGame object at 0x7f40c1cc1090>\n\n    def test_GuessGame_validate(game):\n\
+    \        with pytest.raises(InvalidNumber, match=\"Not a number\"):\n        \
+    \    game._validate(\"spam\")\n        with pytest.raises(InvalidNumber, match=\"\
+    Negative number\"):\n>           game._validate(-16)\nE           AssertionError:\
+    \ Pattern 'Negative number' not found in ''\n\ntest_guess.py:19: AssertionError"
+  killer: test_guess.py::test_GuessGame_validate
+  module: *id001
+  mutations:
+  - lineno: 21
+    operator: CRP
+  number: 16
+  status: killed
+  tests_run: 1
+  time: 0.21027565002441406
+- exception_traceback: "game = <guess.GuessGame object at 0x7f40c1cc6490>\n\n    def\
+    \ test_GuessGame_validate(game):\n        with pytest.raises(InvalidNumber, match=\"\
+    Not a number\"):\n            game._validate(\"spam\")\n        with pytest.raises(InvalidNumber,\
+    \ match=\"Negative number\"):\n            game._validate(-16)\n        with pytest.raises(InvalidNumber,\
+    \ match=\"Number too high\"):\n>           game._validate(16)\n\ntest_guess.py:21:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <guess.GuessGame object at\
+    \ 0x7f40c1cc6490>, number = 16\n\n>   ???\nE   guess.InvalidNumber: mutpy\n\n\
+    guess:23: InvalidNumber\n\nDuring handling of the above exception, another exception\
+    \ occurred:\n\ngame = <guess.GuessGame object at 0x7f40c1cc6490>\n\n    def test_GuessGame_validate(game):\n\
+    \        with pytest.raises(InvalidNumber, match=\"Not a number\"):\n        \
+    \    game._validate(\"spam\")\n        with pytest.raises(InvalidNumber, match=\"\
+    Negative number\"):\n            game._validate(-16)\n        with pytest.raises(InvalidNumber,\
+    \ match=\"Number too high\"):\n>           game._validate(16)\nE           AssertionError:\
+    \ Pattern 'Number too high' not found in 'mutpy'\n\ntest_guess.py:21: AssertionError"
+  killer: test_guess.py::test_GuessGame_validate
+  module: *id001
+  mutations:
+  - lineno: 23
+    operator: CRP
+  number: 17
+  status: killed
+  tests_run: 1
+  time: 0.21506547927856445
+- exception_traceback: "game = <guess.GuessGame object at 0x7f40cfcea650>\n\n    def\
+    \ test_GuessGame_validate(game):\n        with pytest.raises(InvalidNumber, match=\"\
+    Not a number\"):\n            game._validate(\"spam\")\n        with pytest.raises(InvalidNumber,\
+    \ match=\"Negative number\"):\n            game._validate(-16)\n        with pytest.raises(InvalidNumber,\
+    \ match=\"Number too high\"):\n>           game._validate(16)\n\ntest_guess.py:21:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <guess.GuessGame object at\
+    \ 0x7f40cfcea650>, number = 16\n\n>   ???\nE   guess.InvalidNumber\n\nguess:23:\
+    \ InvalidNumber\n\nDuring handling of the above exception, another exception occurred:\n\
+    \ngame = <guess.GuessGame object at 0x7f40cfcea650>\n\n    def test_GuessGame_validate(game):\n\
+    \        with pytest.raises(InvalidNumber, match=\"Not a number\"):\n        \
+    \    game._validate(\"spam\")\n        with pytest.raises(InvalidNumber, match=\"\
+    Negative number\"):\n            game._validate(-16)\n        with pytest.raises(InvalidNumber,\
+    \ match=\"Number too high\"):\n>           game._validate(16)\nE           AssertionError:\
+    \ Pattern 'Number too high' not found in ''\n\ntest_guess.py:21: AssertionError"
+  killer: test_guess.py::test_GuessGame_validate
+  module: *id001
+  mutations:
+  - lineno: 23
+    operator: CRP
+  number: 18
+  status: killed
+  tests_run: 1
+  time: 0.2129042148590088
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916105452048'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1c38310>, game = <guess.GuessGame\
+    \ object at 0x7f40c1c38a50>\n\n    @patch(target=\"guess.input\", side_effect=[\"\
+    spam\", 10])\n    def test_GuessGame_call_wrong_input(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out\n>       assert captured\
+    \ == (\"Guess a number: \\n\"\n                            \"Enter a number, try\
+    \ again\\n\"\n                            \"Guess a number: \\n\"\n          \
+    \                  \"You guessed it!\\n\")\nE       AssertionError\n\ntest_guess.py:66:\
+    \ AssertionError"
+  killer: test_guess.py::test_GuessGame_call_wrong_input
+  module: *id001
+  mutations:
+  - lineno: 29
+    operator: CRP
+  number: 19
+  status: killed
+  tests_run: 4
+  time: 0.20073485374450684
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916105164560'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1b84590>, game = <guess.GuessGame\
+    \ object at 0x7f40c1b846d0>\n\n    @patch(target=\"guess.input\", side_effect=[\"\
+    spam\", 10])\n    def test_GuessGame_call_wrong_input(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out\n>       assert captured\
+    \ == (\"Guess a number: \\n\"\n                            \"Enter a number, try\
+    \ again\\n\"\n                            \"Guess a number: \\n\"\n          \
+    \                  \"You guessed it!\\n\")\nE       AssertionError\n\ntest_guess.py:66:\
+    \ AssertionError"
+  killer: test_guess.py::test_GuessGame_call_wrong_input
+  module: *id001
+  mutations:
+  - lineno: 29
+    operator: CRP
+  number: 20
+  status: killed
+  tests_run: 4
+  time: 0.20166468620300293
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916105429968'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1cc6190>, game = <guess.GuessGame\
+    \ object at 0x7f40c1cc6990>\n\n    @patch(target=\"guess.input\", side_effect=[\"\
+    spam\", 10])\n    def test_GuessGame_call_wrong_input(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out\n>       assert captured\
+    \ == (\"Guess a number: \\n\"\n                            \"Enter a number, try\
+    \ again\\n\"\n                            \"Guess a number: \\n\"\n          \
+    \                  \"You guessed it!\\n\")\nE       AssertionError\n\ntest_guess.py:66:\
+    \ AssertionError"
+  killer: test_guess.py::test_GuessGame_call_wrong_input
+  module: *id001
+  mutations:
+  - lineno: 32
+    operator: CRP
+  number: 21
+  status: killed
+  tests_run: 4
+  time: 0.24427485466003418
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916104531152'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1b2ef10>, game = <guess.GuessGame\
+    \ object at 0x7f40c1b2ecd0>\n\n    @patch(target=\"guess.input\", side_effect=[\"\
+    spam\", 10])\n    def test_GuessGame_call_wrong_input(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out\n>       assert captured\
+    \ == (\"Guess a number: \\n\"\n                            \"Enter a number, try\
+    \ again\\n\"\n                            \"Guess a number: \\n\"\n          \
+    \                  \"You guessed it!\\n\")\nE       AssertionError\n\ntest_guess.py:66:\
+    \ AssertionError"
+  killer: test_guess.py::test_GuessGame_call_wrong_input
+  module: *id001
+  mutations:
+  - lineno: 32
+    operator: CRP
+  number: 22
+  status: killed
+  tests_run: 4
+  time: 0.2423536777496338
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 35
+    operator: CRP
+  number: 23
+  status: survived
+  tests_run: 4
+  time: 0.2430553436279297
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916106409872'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1bdbc50>, game = <guess.GuessGame\
+    \ object at 0x7f40c1bdb290>\n\n    @patch(target=\"guess.input\", side_effect=[1,15,\
+    \ 10])\n    def test_GuessGame_call_number_range(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out.split(\"\\n\")\n>\
+    \       assert captured[1] == \"Too low\"\nE       AssertionError\n\ntest_guess.py:52:\
+    \ AssertionError"
+  killer: test_guess.py::test_GuessGame_call_number_range
+  module: *id001
+  mutations:
+  - lineno: 38
+    operator: CRP
+  number: 24
+  status: killed
+  tests_run: 2
+  time: 0.23861956596374512
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916106409872'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1b83b90>, game = <guess.GuessGame\
+    \ object at 0x7f40c1b83dd0>\n\n    @patch(target=\"guess.input\", side_effect=[1,15,\
+    \ 10])\n    def test_GuessGame_call_number_range(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out.split(\"\\n\")\n>\
+    \       assert captured[1] == \"Too low\"\nE       AssertionError\n\ntest_guess.py:52:\
+    \ AssertionError"
+  killer: test_guess.py::test_GuessGame_call_number_range
+  module: *id001
+  mutations:
+  - lineno: 38
+    operator: CRP
+  number: 25
+  status: killed
+  tests_run: 2
+  time: 0.24176549911499023
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916106409872'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1b6db90>, game = <guess.GuessGame\
+    \ object at 0x7f40c1b6dfd0>\n\n    @patch(target=\"guess.input\", side_effect=[1,15,\
+    \ 10])\n    def test_GuessGame_call_number_range(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out.split(\"\\n\")\n \
+    \       assert captured[1] == \"Too low\"\n>       assert captured[3] == \"Too\
+    \ high\"\nE       AssertionError\n\ntest_guess.py:53: AssertionError"
+  killer: test_guess.py::test_GuessGame_call_number_range
+  module: *id001
+  mutations:
+  - lineno: 40
+    operator: CRP
+  number: 26
+  status: killed
+  tests_run: 2
+  time: 0.23722505569458008
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916106409872'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1b57dd0>, game = <guess.GuessGame\
+    \ object at 0x7f40c1b57750>\n\n    @patch(target=\"guess.input\", side_effect=[1,15,\
+    \ 10])\n    def test_GuessGame_call_number_range(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out.split(\"\\n\")\n \
+    \       assert captured[1] == \"Too low\"\n>       assert captured[3] == \"Too\
+    \ high\"\nE       AssertionError\n\ntest_guess.py:53: AssertionError"
+  killer: test_guess.py::test_GuessGame_call_number_range
+  module: *id001
+  mutations:
+  - lineno: 40
+    operator: CRP
+  number: 27
+  status: killed
+  tests_run: 2
+  time: 0.2343454360961914
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916106409872'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1bbfdd0>, game = <guess.GuessGame\
+    \ object at 0x7f40c1bbfa10>\n\n    @patch(target=\"guess.input\", side_effect=[1,15,\
+    \ 10])\n    def test_GuessGame_call_number_range(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out.split(\"\\n\")\n \
+    \       assert captured[1] == \"Too low\"\n        assert captured[3] == \"Too\
+    \ high\"\n>       assert captured[5] == \"You guessed it!\"\nE       AssertionError\n\
+    \ntest_guess.py:54: AssertionError"
+  killer: test_guess.py::test_GuessGame_call_number_range
+  module: *id001
+  mutations:
+  - lineno: 42
+    operator: CRP
+  number: 28
+  status: killed
+  tests_run: 2
+  time: 0.23719120025634766
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916106409872'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40d03b5750>, game = <guess.GuessGame\
+    \ object at 0x7f40c1cc11d0>\n\n    @patch(target=\"guess.input\", side_effect=[1,15,\
+    \ 10])\n    def test_GuessGame_call_number_range(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out.split(\"\\n\")\n \
+    \       assert captured[1] == \"Too low\"\n        assert captured[3] == \"Too\
+    \ high\"\n>       assert captured[5] == \"You guessed it!\"\nE       AssertionError\n\
+    \ntest_guess.py:54: AssertionError"
+  killer: test_guess.py::test_GuessGame_call_number_range
+  module: *id001
+  mutations:
+  - lineno: 42
+    operator: CRP
+  number: 29
+  status: killed
+  tests_run: 2
+  time: 0.24942922592163086
+- exception_traceback: "capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1adef10>,\
+    \ game = <guess.GuessGame object at 0x7f40c1ade950>\n\n    def test_GuessGame_call_max_guesses(capsys,\
+    \ game):\n        game.attempt = 6\n        game()\n        captured = capsys.readouterr().out.strip()\n\
+    >       assert captured == f\"Sorry, the number was {game.secret_number}\"\nE\
+    \       AssertionError\n\ntest_guess.py:60: AssertionError"
+  killer: test_guess.py::test_GuessGame_call_max_guesses
+  module: *id001
+  mutations:
+  - lineno: 46
+    operator: CRP
+  number: 30
+  status: killed
+  tests_run: 3
+  time: 0.2391653060913086
+- exception_traceback: "capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1b57410>,\
+    \ game = <guess.GuessGame object at 0x7f40c1b57950>\n\n    def test_GuessGame_call_max_guesses(capsys,\
+    \ game):\n        game.attempt = 6\n        game()\n        captured = capsys.readouterr().out.strip()\n\
+    >       assert captured == f\"Sorry, the number was {game.secret_number}\"\nE\
+    \       AssertionError\n\ntest_guess.py:60: AssertionError"
+  killer: test_guess.py::test_GuessGame_call_max_guesses
+  module: *id001
+  mutations:
+  - lineno: 46
+    operator: CRP
+  number: 31
+  status: killed
+  tests_run: 3
+  time: 0.24451875686645508
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916103938896'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1b54650>, game = <guess.GuessGame\
+    \ object at 0x7f40c1b544d0>\n\n    @patch(target=\"guess.input\", side_effect=[\"\
+    spam\", 10])\n    def test_GuessGame_call_wrong_input(mock_input, capsys, game):\n\
+    >       game()\n\ntest_guess.py:64: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\
+    \nself = <guess.GuessGame object at 0x7f40c1b544d0>\n\n>   ???\nE   ValueError:\
+    \ invalid literal for int() with base 10: 'spam'\n\nguess:30: ValueError"
+  killer: test_guess.py::test_GuessGame_call_wrong_input
+  module: *id001
+  mutations:
+  - lineno: 31
+    operator: EHD
+  number: 32
+  status: killed
+  tests_run: 4
+  time: 0.2137284278869629
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 18
+    operator: EXS
+  number: 33
+  status: incompetent
+  tests_run: 1
+  time: 0.21045279502868652
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916103402000'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1c05b10>, game = <guess.GuessGame\
+    \ object at 0x7f40c1c05b90>\n\n    @patch(target=\"guess.input\", side_effect=[\"\
+    spam\", 10])\n    def test_GuessGame_call_wrong_input(mock_input, capsys, game):\n\
+    >       game()\n\ntest_guess.py:64: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\
+    \nself = <guess.GuessGame object at 0x7f40c1c05b90>\n\n>   ???\nE   UnboundLocalError:\
+    \ local variable 'guess' referenced before assignment\n\nguess:37: UnboundLocalError"
+  killer: test_guess.py::test_GuessGame_call_wrong_input
+  module: *id001
+  mutations:
+  - lineno: 31
+    operator: EXS
+  number: 34
+  status: killed
+  tests_run: 4
+  time: 0.21520566940307617
+- exception_traceback: "@pytest.fixture()\n    def game():\n>       game = GuessGame(10,\
+    \ max_guesses=5)\n\ntest_guess.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ \nguess:11: in __init__\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n\
+    self = <guess.GuessGame object at 0x7f40c1bed810>, number = 10\n\n>   ???\nE \
+    \  guess.InvalidNumber: Negative number\n\nguess:21: InvalidNumber"
+  killer: test_guess.py::test_GuessGame_validate
+  module: *id001
+  mutations:
+  - lineno: 20
+    operator: ROR
+  number: 35
+  status: killed
+  tests_run: 1
+  time: 0.21281147003173828
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 20
+    operator: ROR
+  number: 36
+  status: survived
+  tests_run: 4
+  time: 0.19112730026245117
+- exception_traceback: "@pytest.fixture()\n    def game():\n>       game = GuessGame(10,\
+    \ max_guesses=5)\n\ntest_guess.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ \nguess:11: in __init__\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n\
+    self = <guess.GuessGame object at 0x7f40c1bb1a90>, number = 10\n\n>   ???\nE \
+    \  guess.InvalidNumber: Number too high\n\nguess:23: InvalidNumber"
+  killer: test_guess.py::test_GuessGame_validate
+  module: *id001
+  mutations:
+  - lineno: 22
+    operator: ROR
+  number: 37
+  status: killed
+  tests_run: 1
+  time: 0.2206740379333496
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 22
+    operator: ROR
+  number: 38
+  status: survived
+  tests_run: 4
+  time: 0.19559669494628906
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916106409872'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1bede90>, game = <guess.GuessGame\
+    \ object at 0x7f40c1bedd90>\n\n    @patch(target=\"guess.input\", side_effect=[1,15,\
+    \ 10])\n    def test_GuessGame_call_number_range(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out.split(\"\\n\")\n>\
+    \       assert captured[1] == \"Too low\"\nE       AssertionError\n\ntest_guess.py:52:\
+    \ AssertionError"
+  killer: test_guess.py::test_GuessGame_call_number_range
+  module: *id001
+  mutations:
+  - lineno: 27
+    operator: ROR
+  number: 39
+  status: killed
+  tests_run: 2
+  time: 0.19242525100708008
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 27
+    operator: ROR
+  number: 40
+  status: survived
+  tests_run: 4
+  time: 0.19314956665039062
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916106409872'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1b88950>, game = <guess.GuessGame\
+    \ object at 0x7f40c1b886d0>\n\n    @patch(target=\"guess.input\", side_effect=[1,15,\
+    \ 10])\n    def test_GuessGame_call_number_range(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out.split(\"\\n\")\n>\
+    \       assert captured[1] == \"Too low\"\nE       AssertionError\n\ntest_guess.py:52:\
+    \ AssertionError"
+  killer: test_guess.py::test_GuessGame_call_number_range
+  module: *id001
+  mutations:
+  - lineno: 37
+    operator: ROR
+  number: 41
+  status: killed
+  tests_run: 2
+  time: 0.19777798652648926
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916106409872'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1c2e090>, game = <guess.GuessGame\
+    \ object at 0x7f40c1c2e410>\n\n    @patch(target=\"guess.input\", side_effect=[1,15,\
+    \ 10])\n    def test_GuessGame_call_number_range(mock_input, capsys, game):\n\
+    >       game()\n\ntest_guess.py:50: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\
+    guess:30: in __call__\n    ???\n../../anaconda3/lib/python3.7/unittest/mock.py:1011:\
+    \ in __call__\n    return _mock_self._mock_call(*args, **kwargs)\n_ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n_mock_self = <MagicMock name='input' id='139916106409872'>,\
+    \ args = (), kwargs = {}, self = <MagicMock name='input' id='139916106409872'>,\
+    \ _call = call(), seen = set()\ndo_method_calls = False, method_call_name = 'input',\
+    \ mock_call_name = '', is_a_call = False, _new_parent = None\n\n    def _mock_call(_mock_self,\
+    \ *args, **kwargs):\n        self = _mock_self\n        self.called = True\n \
+    \       self.call_count += 1\n    \n        # handle call_args\n        _call\
+    \ = _Call((args, kwargs), two=True)\n        self.call_args = _call\n        self.call_args_list.append(_call)\n\
+    \    \n        seen = set()\n    \n        # initial stuff for method_calls:\n\
+    \        do_method_calls = self._mock_parent is not None\n        method_call_name\
+    \ = self._mock_name\n    \n        # initial stuff for mock_calls:\n        mock_call_name\
+    \ = self._mock_new_name\n        is_a_call = mock_call_name == '()'\n        self.mock_calls.append(_Call(('',\
+    \ args, kwargs)))\n    \n        # follow up the chain of mocks:\n        _new_parent\
+    \ = self._mock_new_parent\n        while _new_parent is not None:\n    \n    \
+    \        # handle method_calls:\n            if do_method_calls:\n           \
+    \     _new_parent.method_calls.append(_Call((method_call_name, args, kwargs)))\n\
+    \                do_method_calls = _new_parent._mock_parent is not None\n    \
+    \            if do_method_calls:\n                    method_call_name = _new_parent._mock_name\
+    \ + '.' + method_call_name\n    \n            # handle mock_calls:\n         \
+    \   this_mock_call = _Call((mock_call_name, args, kwargs))\n            _new_parent.mock_calls.append(this_mock_call)\n\
+    \    \n            if _new_parent._mock_new_name:\n                if is_a_call:\n\
+    \                    dot = ''\n                else:\n                    dot\
+    \ = '.'\n                is_a_call = _new_parent._mock_new_name == '()'\n    \
+    \            mock_call_name = _new_parent._mock_new_name + dot + mock_call_name\n\
+    \    \n            # follow the parental chain:\n            _new_parent = _new_parent._mock_new_parent\n\
+    \    \n            # check we're not in an infinite loop:\n            # ( use\
+    \ ids here so as not to call __hash__ on the mocks)\n            _new_parent_id\
+    \ = id(_new_parent)\n            if _new_parent_id in seen:\n                break\n\
+    \            seen.add(_new_parent_id)\n    \n        effect = self.side_effect\n\
+    \        if effect is not None:\n            if _is_exception(effect):\n     \
+    \           raise effect\n            elif not _callable(effect):\n>         \
+    \      result = next(effect)\nE               StopIteration\n\n../../anaconda3/lib/python3.7/unittest/mock.py:1073:\
+    \ StopIteration"
+  killer: test_guess.py::test_GuessGame_call_number_range
+  module: *id001
+  mutations:
+  - lineno: 37
+    operator: ROR
+  number: 42
+  status: killed
+  tests_run: 2
+  time: 0.26550745964050293
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916106409872'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1bf2310>, game = <guess.GuessGame\
+    \ object at 0x7f40c1bf2d50>\n\n    @patch(target=\"guess.input\", side_effect=[1,15,\
+    \ 10])\n    def test_GuessGame_call_number_range(mock_input, capsys, game):\n\
+    \        game()\n        captured = capsys.readouterr().out.split(\"\\n\")\n \
+    \       assert captured[1] == \"Too low\"\n>       assert captured[3] == \"Too\
+    \ high\"\nE       AssertionError\n\ntest_guess.py:53: AssertionError"
+  killer: test_guess.py::test_GuessGame_call_number_range
+  module: *id001
+  mutations:
+  - lineno: 39
+    operator: ROR
+  number: 43
+  status: killed
+  tests_run: 2
+  time: 0.19242238998413086
+- exception_traceback: "mock_input = <MagicMock name='input' id='139916106409872'>,\
+    \ capsys = <_pytest.capture.CaptureFixture object at 0x7f40c1caa290>, game = <guess.GuessGame\
+    \ object at 0x7f40c1caa090>\n\n    @patch(target=\"guess.input\", side_effect=[1,15,\
+    \ 10])\n    def test_GuessGame_call_number_range(mock_input, capsys, game):\n\
+    >       game()\n\ntest_guess.py:50: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\
+    guess:30: in __call__\n    ???\n../../anaconda3/lib/python3.7/unittest/mock.py:1011:\
+    \ in __call__\n    return _mock_self._mock_call(*args, **kwargs)\n_ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n_mock_self = <MagicMock name='input' id='139916106409872'>,\
+    \ args = (), kwargs = {}, self = <MagicMock name='input' id='139916106409872'>,\
+    \ _call = call(), seen = set()\ndo_method_calls = False, method_call_name = 'input',\
+    \ mock_call_name = '', is_a_call = False, _new_parent = None\n\n    def _mock_call(_mock_self,\
+    \ *args, **kwargs):\n        self = _mock_self\n        self.called = True\n \
+    \       self.call_count += 1\n    \n        # handle call_args\n        _call\
+    \ = _Call((args, kwargs), two=True)\n        self.call_args = _call\n        self.call_args_list.append(_call)\n\
+    \    \n        seen = set()\n    \n        # initial stuff for method_calls:\n\
+    \        do_method_calls = self._mock_parent is not None\n        method_call_name\
+    \ = self._mock_name\n    \n        # initial stuff for mock_calls:\n        mock_call_name\
+    \ = self._mock_new_name\n        is_a_call = mock_call_name == '()'\n        self.mock_calls.append(_Call(('',\
+    \ args, kwargs)))\n    \n        # follow up the chain of mocks:\n        _new_parent\
+    \ = self._mock_new_parent\n        while _new_parent is not None:\n    \n    \
+    \        # handle method_calls:\n            if do_method_calls:\n           \
+    \     _new_parent.method_calls.append(_Call((method_call_name, args, kwargs)))\n\
+    \                do_method_calls = _new_parent._mock_parent is not None\n    \
+    \            if do_method_calls:\n                    method_call_name = _new_parent._mock_name\
+    \ + '.' + method_call_name\n    \n            # handle mock_calls:\n         \
+    \   this_mock_call = _Call((mock_call_name, args, kwargs))\n            _new_parent.mock_calls.append(this_mock_call)\n\
+    \    \n            if _new_parent._mock_new_name:\n                if is_a_call:\n\
+    \                    dot = ''\n                else:\n                    dot\
+    \ = '.'\n                is_a_call = _new_parent._mock_new_name == '()'\n    \
+    \            mock_call_name = _new_parent._mock_new_name + dot + mock_call_name\n\
+    \    \n            # follow the parental chain:\n            _new_parent = _new_parent._mock_new_parent\n\
+    \    \n            # check we're not in an infinite loop:\n            # ( use\
+    \ ids here so as not to call __hash__ on the mocks)\n            _new_parent_id\
+    \ = id(_new_parent)\n            if _new_parent_id in seen:\n                break\n\
+    \            seen.add(_new_parent_id)\n    \n        effect = self.side_effect\n\
+    \        if effect is not None:\n            if _is_exception(effect):\n     \
+    \           raise effect\n            elif not _callable(effect):\n>         \
+    \      result = next(effect)\nE               StopIteration\n\n../../anaconda3/lib/python3.7/unittest/mock.py:1073:\
+    \ StopIteration"
+  killer: test_guess.py::test_GuessGame_call_number_range
+  module: *id001
+  mutations:
+  - lineno: 39
+    operator: ROR
+  number: 44
+  status: killed
+  tests_run: 2
+  time: 0.27327823638916016
+number_of_tests: 4
+targets:
+- guess.py
+tests:
+- name: test_guess
+  target: null
+  time: 0.8086566925048828
+time_stats:
+  create_mutant_module: 0.01217198371887207
+  create_target_ast: 0.0010538101196289062
+  mutate_module: 10.355190992355347
+  run_tests_with_mutant: 9.571560859680176
+total_time: 11.165948152542114
