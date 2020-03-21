@@ -87,6 +87,7 @@ def test_update_quote():
 
     data = json.loads(response.get_data())
     updated_quote = data['quote']
+    # breakpoint()
     assert updated_quote['id'] == 4
     assert updated_quote['quote'] == 'You talking to me?!'
     assert updated_quote['movie'] == 'Taxi driver (1976)'

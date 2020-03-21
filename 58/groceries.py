@@ -70,7 +70,12 @@ def create_parser():
        Create an ArgumentParser object giving it the required options,
        note that the options are mutually exclusive. 
        Returns a argparse.ArgumentParser object"""
-    pass
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-a", "--add", action="store", nargs="3", help="add item providing name (str), price (int), and craving (bool)")
+    parser.add_argument("-d", "--delete", action="store", nargs="+", help=" delete a product by name (str)")
+    parser.add_argument("-l", "--list", action="store", nargs="+", help="show items in cart")
+    parser.add_argument("-s", "--search", action="store", nargs="+", help="search items by name")
+    return parser
 
 
 def handle_args(args=None, cart=None):

@@ -11,35 +11,40 @@ def count_islands(grid):
     # .....some operations.....
     # mark_islands(r, c, grid)
     # return islands
-    islands = 0
-    for row_num, row in enumerate(grid):
-        for col_num, space in enumerate(row):
-            if row_num == 0:
-                grid, icount = mark_islands(row_num, col_num, grid)
-                islands += icount
-            else:
-                grid, icount = mark_islands(row_num, col_num, grid)
-                islands += icount
-    return grid, islands
-def mark_islands(i, j, grid):
+    islands =0
+    for i, row in enumerate(grid):
+        for j, _ in enumerate(row):
+            if grid[i][j] == 1:
+                mark_islands(i, j, grid)
+                extend_island(i, j, grid)
+                islands += 1
+    return islands
+
+def extend_island(row, col, grid):
+    """
+    extends island
+    try to find 1 in four directions recursively
+    and marks islands:
+    """
+    up = (row - 1, col)
+    right = (row, col + 1)
+    down = (row + 1, col)
+    left = (row, col -1)
+    for (row, col) in [down, right, up, left]:
+        if row < 0 or col < 0:
+            continue
+        try:
+            if grid[row][col] == 1:
+                mark_islands(row, col, grid)
+                extend_island(row, col, grid)
+        except IndexError:
+            print(f"No Value found in {row}, {col}")
+
+
+def mark_islands(row, col, grid):
     """
     Input: the row, column and grid
     Output: None. Just mark the visisted islands as in-place operation.
     """
     # grid[i][j] = '#'      # one way to mark visited ones - suggestion.
-    element = grid[i][j]
-    if element == 1:
-        if j == 0 or grid[i][j-1] == 0:
-            grid[i][j] = '-'
-            return (grid, 1)
-        elif grid[i][j-1] == '-':
-            grid[i][j] = '-'
-            return (grid, 0)
-    else:
-        return (grid, 0)
-        
-grid = [[1, 0, 0, 1],
-        [1, 0, 1, 0],
-        [0, 1, 0, 0],
-        [1, 0, 0, 1]] 
-print(count_islands(grid))
+    grid[row][col] = '#'

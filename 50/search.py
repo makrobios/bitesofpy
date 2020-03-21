@@ -14,15 +14,25 @@ def _convert_struct_time_to_dt(stime):
     time.struct_time(tm_year=2016, tm_mon=12, tm_mday=28, ...)
     -> date(2016, 12, 28)
     """
-    pass
+    year = stime.tm_year
+    month = stime.tm_mon
+    day = stime.tm_mday
+    return date(year, month, day) 
 
 
 def get_feed_entries(feed=FEED):
     """Use feedparser to parse PyBites RSS feed.
        Return a list of Entry namedtuples (date = date, drop time part)
     """
-    pass
-
+    feeds = feedparser.parse(feed) 
+    entries = []
+    for feed in feeds["entries"]:
+        date = _convert_struct_time_to_dt(feed["published_parsed"])
+        title = feed["title"]
+        link = feed["link"]
+        tags = [tag["term"].lower() for tag in feed["tags"]]
+        entries.append(Entry(date, title, link, tags))
+    return entries
 
 def filter_entries_by_tag(search, entry):
     """Check if search matches any tags as stored in the Entry namedtuple
@@ -35,7 +45,20 @@ def filter_entries_by_tag(search, entry):
           e.g. flask|django should match entries with either tag
        3. Else: match if search is in tags
     """
-    pass
+    if "&" in search:
+        return all(
+                term.lower() in entry.tags
+                for term in search.split("&") 
+                )
+    elif "|" in search:
+        return any(
+                term.lower() in entry.tags                       
+                for term in search.split("|")
+                )
+    else:
+        return (search.lower() in entry.tags)
+
+     
 
 def main():
     """Entry point to the program
@@ -49,8 +72,32 @@ def main():
        6. Secondly, print the number of matches: 'n entries matched'
           (use entry if only 1 match)
     """
-    pass
+    entries = get_feed_entries()  # Wäre besser schon vorher zu sortieren
+    while True:
 
+        result = []
+        search = input("Please provide a search term: ").lower()
+
+        if search.strip() == "q":
+            print("Bye")
+            break
+
+        elif not search:
+            print("Please provide a search term")
+
+        elif search:
+
+            for entry in entries:
+                if filter_entries_by_tag(search, entry):
+                    result.append(entry)    # liste nicht notwendig, gleich verarbeiten spart das if result
+
+            if result:
+
+                for entry in sorted(result, key=lambda x: x.date):
+                    print(entry.title)
+
+            num = "entry" if len(result) == 1 else "entries"
+            print(f"{len(result)} {num} matched")
 
 if __name__ == '__main__':
     main()
